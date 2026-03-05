@@ -51,12 +51,7 @@ const CreateAccount = () => {
           <UserInfo setCurrentStep={setCurrentStep} ref={accountInfoRef} />
         );
       case CREATE_ACCOUNT_FLOW_STEPS.CreatePassword:
-        return (
-          <CreatePassword
-            setCurrentStep={setCurrentStep}
-            ref={accountInfoRef}
-          />
-        );
+        return <CreatePassword setCurrentStep={setCurrentStep} />;
       default:
         return <></>;
     }

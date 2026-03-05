@@ -1,0 +1,66 @@
+.userInfoContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 56px;
+}
+
+.title {
+  font-family: Rubik;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 143%;
+  letter-spacing: -0.36px;
+
+  color: #132c4a;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}
+
+.label {
+  font-family: Rubik;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 16px;
+  letter-spacing: 0px;
+
+  color: #8292a1;
+}
+
+.input {
+  width: 516px;
+  height: 76px;
+  border: 1px solid #729cf0;
+  border-radius: 12px;
+  padding-left: 20px;
+  outline: none;
+
+  font-family: Rubik;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  color: #132c4a;
+}
+
+.input::placeholder {
+  color: #d9e0e6;
+}
+
+.errorMessage {
+  font-family: Rubik;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0;
+  color: red;
+}

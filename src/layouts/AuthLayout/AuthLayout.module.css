@@ -1,0 +1,58 @@
+.wrapper {
+  background: #132c4a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 85px 94px;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  padding: 80px;
+  border-radius: 12px;
+  background-color: #f6f7f9;
+  background-image: url("../../assets/background-pattern.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.leftSection {
+  display: flex;
+  flex-direction: column;
+  row-gap: 322px;
+}
+
+.rightSection {
+  background: #f9fafb;
+  display: flex;
+  flex: 1;
+  border-radius: 16px;
+}
+
+.subtitle {
+  font-family: Rubik;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0%;
+}
+
+.title {
+  font-family: Rubik;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 54px;
+  letter-spacing: 0%;
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+.description {
+  font-family: Rubik;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}

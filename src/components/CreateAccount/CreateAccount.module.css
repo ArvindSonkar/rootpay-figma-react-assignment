@@ -1,0 +1,48 @@
+.createAccountFlowContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: -16px 4px 35px 0 rgba(0, 0, 0, 0.03);
+  padding: 44px 64px 56px 64px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  gap: 16px;
+}
+
+.back {
+  font-family: Rubik;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+
+  width: 100%;
+  border: 2px solid #d9e0e6;
+  padding: 10px 24px;
+  background: white;
+  border-radius: 38px;
+  cursor: pointer;
+}
+
+.continue {
+  font-family: Rubik;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+
+  width: 100%;
+  background: #0054fd;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 38px;
+  cursor: pointer;
+}

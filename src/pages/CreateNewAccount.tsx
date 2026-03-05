@@ -1,11 +1,27 @@
 import AuthLayout from "../layouts/AuthLayout/AuthLayout";
-import CreateAccount from "../components/CreateAccount/CreateAccount";
+import CreateAccount, {
+  type AccountInfoRef,
+} from "../components/CreateAccount/CreateAccount";
+import { useState } from "react";
+import { CreateNewAccountContext } from "../contexts/CreateNewAccountContext";
 
 const CreateNewAccount = () => {
+  const [isNewAccountCreated, setIsNewAccountCreated] = useState(false);
+  const [accountInfo, setAccountInfo] = useState<AccountInfoRef | null>(null);
+
   return (
-    <AuthLayout>
-      <CreateAccount />
-    </AuthLayout>
+    <CreateNewAccountContext.Provider
+      value={{
+        isNewAccountCreated,
+        setIsNewAccountCreated,
+        accountInfo,
+        setAccountInfo,
+      }}
+    >
+      <AuthLayout>
+        <CreateAccount />
+      </AuthLayout>
+    </CreateNewAccountContext.Provider>
   );
 };
 

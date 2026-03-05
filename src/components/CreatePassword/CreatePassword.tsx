@@ -6,9 +6,13 @@ import eyeOffIcon from "../../assets/eye-off.svg";
 
 type CreatePasswordProps = {
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
+  onComplete: () => void;
 };
 
-const CreatePassword: FC<CreatePasswordProps> = ({ setCurrentStep }) => {
+const CreatePassword: FC<CreatePasswordProps> = ({
+  setCurrentStep,
+  onComplete,
+}) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -27,8 +31,8 @@ const CreatePassword: FC<CreatePasswordProps> = ({ setCurrentStep }) => {
       return;
     }
 
-    setCurrentStep((prev) => prev + 1);
-  }, [isMatchValid, isMinLengthValid, setCurrentStep]);
+    onComplete();
+  }, [isMatchValid, isMinLengthValid, onComplete]);
 
   return (
     <>
@@ -66,9 +70,7 @@ const CreatePassword: FC<CreatePasswordProps> = ({ setCurrentStep }) => {
             </div>
 
             {submitted && !isMinLengthValid ? (
-              <div className={styles.errorText}>
-                Must be atleast 6 characters
-              </div>
+              <div className={styles.errorText}>Must be atleast 6 characters</div>
             ) : null}
           </div>
 

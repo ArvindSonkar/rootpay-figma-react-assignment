@@ -41,12 +41,7 @@ const CreateAccount = () => {
           />
         );
       case CREATE_ACCOUNT_FLOW_STEPS.OtpVerification:
-        return (
-          <OtpVerification
-            setCurrentStep={setCurrentStep}
-            ref={accountInfoRef}
-          />
-        );
+        return <OtpVerification setCurrentStep={setCurrentStep} />;
       case CREATE_ACCOUNT_FLOW_STEPS.Email:
         return (
           <EmailInput setCurrentStep={setCurrentStep} ref={accountInfoRef} />

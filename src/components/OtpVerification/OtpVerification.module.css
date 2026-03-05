@@ -1,0 +1,101 @@
+.otpContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 48px;
+}
+
+.title {
+  font-family: Rubik;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 143%;
+  letter-spacing: -0.36px;
+  color: #132c4a;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}
+
+.subtitle {
+  font-family: Rubik;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0px;
+
+  color: #8292a1;
+}
+
+.otpRow {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  opacity: 80%;
+}
+
+.otpInput {
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
+  border: 1px solid #729cf0;
+  text-align: center;
+
+  color: #132c4a;
+  outline: none;
+  background: #ffffff;
+
+  font-family: Rubik;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+}
+
+.resendOtpText {
+  font-family: Rubik;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: center;
+}
+
+.resendWrap {
+  width: 100%;
+  text-align: center;
+  font-family: Rubik;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 24px;
+  color: #3b5270;
+}
+
+.errorMessage {
+  font-family: Rubik;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0px;
+  color: red;
+  margin-top: 8px;
+}
+
+.resendButton {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font-family: Rubik;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: #0054fd;
+}

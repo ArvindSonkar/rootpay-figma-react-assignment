@@ -8,7 +8,8 @@
 
 .container {
   display: flex;
-  width: 100%;
+  justify-content: center;
+  height: 80vh;
   padding: 80px;
   border-radius: 12px;
   background-color: #f6f7f9;
@@ -21,13 +22,13 @@
 .leftSection {
   display: flex;
   flex-direction: column;
-  row-gap: 322px;
+  row-gap: clamp(40px, 10vh, 322px);
+  justify-content: space-between;
 }
 
 .rightSection {
   background: #f9fafb;
   display: flex;
-  flex: 1;
   border-radius: 16px;
 }
 

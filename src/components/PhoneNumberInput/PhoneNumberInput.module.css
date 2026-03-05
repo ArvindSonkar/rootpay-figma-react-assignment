@@ -1,0 +1,98 @@
+.title {
+  font-family: Rubik;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 143%;
+  letter-spacing: -0.36px;
+  color: #132c4a;
+}
+
+.label {
+  font-family: Rubik;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0px;
+  color: #8292a1;
+
+  .star {
+    color: red;
+  }
+}
+
+.errorMessage {
+  font-family: Rubik;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0px;
+  color: red;
+  margin-top: 8px;
+}
+
+.mobileNumberInputContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 56px;
+}
+
+.phoneNumberRow {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  row-gap: 7px;
+}
+
+.phoneNumberInputContainer {
+  display: flex;
+  gap: 24px;
+}
+
+.countryCodeSelect {
+  width: 93px;
+  height: 76px;
+  border: 1px solid #729cf0;
+  border-radius: 12px;
+  padding: 0 12px;
+  font-family: Rubik;
+  font-size: 24px;
+  line-height: 143%;
+  color: #8292a1;
+  background-color: #ffffff;
+  align-content: center;
+}
+
+.code {
+  border: none;
+  font-family: Rubik;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  color: #8292a1;
+}
+
+.phoneNumberInput {
+  height: 76px;
+  border: 1px solid #729cf0;
+  border-radius: 12px;
+  padding: 0 24px;
+  color: #8292a1;
+  outline: none;
+
+  font-family: Rubik;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+}
+
+.phoneNumberInput::placeholder {
+  font-family: Rubik;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+
+  color: #8292a1;
+}

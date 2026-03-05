@@ -1,8 +1,8 @@
 export const CREATE_ACCOUNT_FLOW_STEPS = {
-  Role: 1,
-  PhoneNumber: 2,
-  OtpVerification: 3,
-  Email: 4,
-  FirstAndLastName: 5,
-  CreatePassword: 6,
+  AccountType: 0,
+  PhoneNumber: 1,
+  OtpVerification: 2,
+  Email: 3,
+  FirstAndLastName: 4,
+  CreatePassword: 5,
 };

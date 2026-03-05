@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState, type ReactNode } from "react";
+import { useCallback, useMemo, useRef, useState, type ReactNode } from "react";
 import { CREATE_ACCOUNT_FLOW_STEPS } from "../../constants/create-account-flow.contant";
 import styles from "./CreateAccount.module.css";
 import AccountType from "../AccountType/AccountType";
@@ -7,6 +7,7 @@ import OtpVerification from "../OtpVerification/OtpVerification";
 import UserInfo from "../UserInfo/UserInfo";
 import CreatePassword from "../CreatePassword/CreatePassword";
 import EmailInput from "../EmailInput/EmailInput";
+import LinearProgress from "@mui/material/LinearProgress";
 
 export type AccountInfoRef = {
   accountType: "Personal" | "Business";
@@ -16,7 +17,7 @@ export type AccountInfoRef = {
 };
 const CreateAccount = () => {
   const [currentStep, setCurrentStep] = useState(
-    CREATE_ACCOUNT_FLOW_STEPS.Role,
+    CREATE_ACCOUNT_FLOW_STEPS.AccountType,
   );
 
   const accountInfoRef = useRef<AccountInfoRef | null>({
@@ -28,40 +29,70 @@ const CreateAccount = () => {
 
   const renderCurrentStep: () => ReactNode = useCallback(() => {
     switch (currentStep) {
-      case CREATE_ACCOUNT_FLOW_STEPS.Role:
-        return <AccountType ref={accountInfoRef} />;
+      case CREATE_ACCOUNT_FLOW_STEPS.AccountType:
+        return (
+          <AccountType setCurrentStep={setCurrentStep} ref={accountInfoRef} />
+        );
       case CREATE_ACCOUNT_FLOW_STEPS.PhoneNumber:
-        return <PhoneNumberInput ref={accountInfoRef} />;
+        return (
+          <PhoneNumberInput
+            setCurrentStep={setCurrentStep}
+            ref={accountInfoRef}
+          />
+        );
       case CREATE_ACCOUNT_FLOW_STEPS.OtpVerification:
-        return <OtpVerification ref={accountInfoRef} />;
+        return (
+          <OtpVerification
+            setCurrentStep={setCurrentStep}
+            ref={accountInfoRef}
+          />
+        );
       case CREATE_ACCOUNT_FLOW_STEPS.Email:
-        return <EmailInput ref={accountInfoRef} />;
+        return (
+          <EmailInput setCurrentStep={setCurrentStep} ref={accountInfoRef} />
+        );
       case CREATE_ACCOUNT_FLOW_STEPS.FirstAndLastName:
-        return <UserInfo ref={accountInfoRef} />;
+        return (
+          <UserInfo setCurrentStep={setCurrentStep} ref={accountInfoRef} />
+        );
       case CREATE_ACCOUNT_FLOW_STEPS.CreatePassword:
-        return <CreatePassword ref={accountInfoRef} />;
+        return (
+          <CreatePassword
+            setCurrentStep={setCurrentStep}
+            ref={accountInfoRef}
+          />
+        );
       default:
         return <></>;
     }
   }, [currentStep]);
 
-  const nextStep = useCallback(() => setCurrentStep((prev) => prev + 1), []);
-  const previousStep = useCallback(
-    () => setCurrentStep((prev) => (prev - 1 > 0 ? prev - 1 : 1)),
-    [],
-  );
+  const progressBarValue = useMemo(() => currentStep / 5, [currentStep]);
 
   return (
     <div className={styles.createAccountFlowContainer}>
+      {progressBarValue > 0 && (
+        <LinearProgress
+          variant="determinate"
+          value={progressBarValue * 100}
+          sx={{
+            width: "78%",
+            height: "5px",
+            borderRadius: "12px",
+            backgroundColor: "transparent",
+            border: "1px solid #0054FD",
+            position: "absolute",
+            top: "-1%",
+            right: "10%",
+            overflow: "hidden",
+            "& .MuiLinearProgress-bar": {
+              backgroundColor: "#0054FD",
+              borderRadius: "12px",
+            },
+          }}
+        />
+      )}
       {renderCurrentStep()}
-      <div className={styles.actions}>
-        <button className={styles.back} onClick={previousStep}>
-          Back
-        </button>
-        <button className={styles.continue} onClick={nextStep}>
-          Continue
-        </button>
-      </div>
     </div>
   );
 };

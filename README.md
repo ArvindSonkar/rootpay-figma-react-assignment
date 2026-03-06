@@ -1,73 +1,267 @@
-# React + TypeScript + Vite
+# RootPay Figma React Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Live Demo
 
-Currently, two official plugins are available:
+Live deployed URL: ADD_DEPLOYED_URL_HERE
+GitHub repository: ADD_GITHUB_REPO_LINK_HERE
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+# Project Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This project implements the **Create Account flow** based on the provided Figma design using **React + TypeScript + Vite**.
 
-## Expanding the ESLint configuration
+The application guides users through a **multi-step onboarding process** with validation and a final account summary modal.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+# Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+* **React 19** – UI framework
+* **TypeScript** – type safety
+* **Vite** – fast development and build tooling
+* **CSS Modules** – scoped component styling
+* **Material UI** – UI component (`LinearProgress`)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+# Application Flow
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The account creation process includes the following steps:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. **Account Type Selection**
+2. **Mobile Number Input**
+3. **OTP Verification**
+4. **Email Input**
+5. **User Information (First & Last Name)**
+6. **Create Password**
+7. **Account Summary Modal**
+
+Each step validates input before allowing the user to continue.
+
+---
+
+# Architecture
+
+## High Level Structure
+
+CreateNewAccount Page
+│
+├── AuthLayout
+│   ├── Left Illustration Panel
+│   └── Right Step Content Panel
+│
+└── CreateAccount
+│
+├── AccountType
+├── PhoneNumberInput
+├── OtpVerification
+├── EmailInput
+├── UserInfo
+├── CreatePassword
+│
+└── AccountSummaryModal
+
+---
+
+## Project Structure
+
+src/
+│
+├── pages/
+│   └── CreateNewAccount.tsx
+│
+├── layouts/
+│   └── AuthLayout/
+│
+├── components/
+│   ├── CreateAccount/
+│   ├── AccountType/
+│   ├── PhoneNumberInput/
+│   ├── OtpVerification/
+│   ├── EmailInput/
+│   ├── UserInfo/
+│   ├── CreatePassword/
+│   └── AccountSummaryModal/
+│
+└── contexts/
+└── CreateNewAccountContext.ts
+
+---
+
+# State Management Decisions
+
+The application uses a **combination of local state, refs, and context**.
+
+### Local State
+
+Each step manages its own input and validation state locally.
+This keeps components isolated and prevents unnecessary re-renders.
+
+### Shared Data Collection
+
+`accountInfoRef` inside `CreateAccount` collects data entered across steps.
+
+This allows:
+
+* data persistence between steps
+* minimal re-renders
+
+### Global State via Context
+
+`CreateNewAccountContext` stores:
+
+* final account creation status
+* account summary data
+
+A **custom hook (`useCreateNewAccountContext`)** ensures the context is only used inside its provider.
+
+---
+
+# Step Behavior
+
+## 1. Account Type
+
+User selects:
+
+* Personal
+* Business
+
+Selection is stored in shared account info.
+
+---
+
+## 2. Mobile Number
+
+Validation rules:
+
+* numeric only
+* exactly **10 digits**
+
+---
+
+## 3. OTP Verification
+
+Features:
+
+* 4 input boxes
+* auto-focus to next input
+* validation ensures all digits entered
+
+---
+
+## 4. Email Input
+
+Validation:
+
+* regex email format validation
+
+---
+
+## 5. User Information
+
+Collects:
+
+* First Name
+* Last Name
+
+Validation:
+
+* both fields required
+
+---
+
+## 6. Create Password
+
+Includes:
+
+* password
+* confirm password
+
+Validation rules:
+
+* minimum **6 characters**
+* both passwords must match
+
+Eye toggle allows show/hide password.
+
+---
+
+## 7. Account Summary Modal
+
+Displayed after successful account creation.
+
+Shows:
+
+* Account Type
+* Masked Email
+* Full Name
+* Mobile Number
+
+Includes security information and a **Go To Dashboard** action.
+
+---
+
+# UI / UX Enhancements Implemented
+
+The following improvements were implemented beyond the basic flow:
+
+* Figma-aligned layout and typography
+* Stable right panel width to avoid layout flicker
+* Modal open animation (overlay fade + scale animation)
+* Inline validation feedback
+* Reusable **Back / Continue button controls**
+* Masked email display in summary modal for privacy
+
+---
+
+# Assumptions
+
+Since backend APIs were not provided, the following assumptions were made:
+
+* OTP verification is simulated on the frontend
+* Account creation is handled locally
+* Mobile numbers are restricted to **10 digits**
+* Password minimum length is **6 characters**
+
+---
+
+# Run Locally
+
+Install dependencies
+
+npm install
+
+Start development server
+
+npm run dev
+
+---
+
+# Available Scripts
+
+npm run dev      # start development server
+npm run build    # build production bundle
+npm run lint     # run eslint checks
+npm run preview  # preview production build
+
+---
+
+# Verification
+
+TypeScript compilation check:
+
+npx tsc --noEmit
+
+---
+
+# Future Improvements
+
+Potential improvements for production usage:
+
+* API integration for OTP verification
+* Server-side validation
+* Route-based step navigation
+* Unit tests for validation and step transitions
+* Accessibility improvements (ARIA roles, keyboard navigation)
+* Error boundary handling

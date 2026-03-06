@@ -2,8 +2,8 @@
 
 ## Live Demo
 
-Live deployed URL: ADD_DEPLOYED_URL_HERE
-GitHub repository: ADD_GITHUB_REPO_LINK_HERE
+Live deployed URL: https://rootpay-figma-react-assignment.vercel.app/
+GitHub repository: https://github.com/ArvindSonkar/rootpay-figma-react-assignment
 
 ---
 

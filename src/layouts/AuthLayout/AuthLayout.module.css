@@ -9,8 +9,9 @@
 .container {
   display: flex;
   justify-content: center;
-  height: 80vh;
-  padding: 80px;
+  min-height: calc(100vh - 24px);
+  padding: 32px;
+  box-sizing: border-box;
   border-radius: 12px;
   background-color: #f6f7f9;
   background-image: url("../../assets/background-pattern.svg");
@@ -22,7 +23,7 @@
 .leftSection {
   display: flex;
   flex-direction: column;
-  row-gap: clamp(40px, 10vh, 322px);
+  row-gap: clamp(32px, 8vh, 180px);
   justify-content: space-between;
 }
 

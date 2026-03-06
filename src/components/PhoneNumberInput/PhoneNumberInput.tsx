@@ -54,7 +54,7 @@ const PhoneNumberInput = forwardRef<AccountInfoRef, PhoneNumberInputProps>(
                   <option value="+1">+1</option>
                 </select>
               </div>
-              <div>
+              <div className={styles.number}>
                 <input
                   type="tel"
                   className={styles.phoneNumberInput}

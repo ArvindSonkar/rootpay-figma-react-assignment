@@ -65,7 +65,7 @@ const UserInfo = forwardRef<AccountInfoRef, UserInfoProps>(
                 id="firstName"
                 type="text"
                 className={styles.input}
-                placeholder="Oliver"
+                placeholder="First Name"
                 value={firstName}
                 onChange={handleFirstNameChange}
               />

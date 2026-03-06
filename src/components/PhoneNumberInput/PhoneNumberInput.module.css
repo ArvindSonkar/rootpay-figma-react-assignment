@@ -72,6 +72,10 @@
   color: #8292a1;
 }
 
+.number {
+  width: 384px;
+}
+
 .phoneNumberInput {
   height: 76px;
   border: 1px solid #729cf0;
@@ -79,6 +83,7 @@
   padding: 0 24px;
   color: #8292a1;
   outline: none;
+  width: stretch;
 
   font-family: Rubik;
   font-weight: 400;

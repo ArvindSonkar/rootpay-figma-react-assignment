@@ -37,7 +37,7 @@
 .option {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 384px;
   height: 76px;
   padding: 24px;
   border-radius: 16px;
@@ -73,5 +73,5 @@
 }
 
 .selectedIcon {
-  color: #0054FD;
+  color: #0054fd;
 }

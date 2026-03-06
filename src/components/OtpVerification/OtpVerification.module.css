@@ -40,9 +40,13 @@
 .otpInput {
   width: 70px;
   height: 70px;
+  box-sizing: border-box;
+  padding: 0;
   border-radius: 12px;
   border: 1px solid #729cf0;
   text-align: center;
+  -webkit-appearance: none;
+  appearance: none;
 
   color: #132c4a;
   outline: none;

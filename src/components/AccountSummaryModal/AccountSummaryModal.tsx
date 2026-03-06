@@ -70,7 +70,11 @@ const AccountSummaryModal = ({
         </div>
         <div className={styles.securityNote}>
           <span className={styles.securityIcon}>
-            <img src={secureSvg} alt="success" className={styles.checkIcon} />
+            <img
+              src={secureSvg}
+              alt="success"
+              className={styles.securityIcon}
+            />
           </span>
           <span>Your account is secured with bank-grade security</span>
         </div>
